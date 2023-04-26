@@ -14,9 +14,11 @@ const toggleMenu = (toggle) => {
   if (toggle) {
     overlay.style.display = "block";
     sideMenu.setAttribute("data-active", "active");
+    document.body.style.overflowY = "hidden";
   } else {
     overlay.style.display = "none";
     sideMenu.setAttribute("data-active", "inactive");
+    document.body.style.overflowY = "visible";
   }
 };
 

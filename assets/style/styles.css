@@ -284,7 +284,7 @@ footer > a:hover {
   z-index: 11110;
   transition: all 0.5s;
   transform: translateX(100%) skew(0deg, 0deg);
-  padding: 5% 50px;
+  padding: 80px 50px;
 }
 
 #sidemenu[data-active="inactive"] {
