@@ -1,0 +1,363 @@
+/* :root {
+} */
+
+@font-face {
+  font-family: "D-DIN-Regular";
+  src: url("../fonts/D-DIN-Bold.woff2") format("woff2"),
+    url("../fonts/D-DIN.woff2") format("woff");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font: 16px/26px D-DIN-Regular, Arial, Verdana, sans-serif;
+  color: white;
+}
+a:hover {
+  color: none;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+h2 {
+  font-size: 46px;
+  line-height: 48px;
+  font-weight: bolder;
+}
+
+h3 {
+  font-weight: normal;
+}
+body {
+  position: relative;
+  padding: 0px;
+  margin: 0px;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* __NAVIGATION____ */
+
+nav[data-active="active"] {
+  opacity: 1;
+}
+nav[data-active="inactive"] {
+  opacity: 0;
+}
+nav {
+  position: fixed;
+  z-index: 2;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+nav > div {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px 50px;
+}
+
+nav > div > a > img {
+  position: relative;
+  filter: invert(1);
+}
+
+#navigation > ul {
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  list-style-type: none;
+  gap: 20px;
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+#navigation > ul > li {
+  position: relative;
+  cursor: pointer;
+  /* font-size: 14px; */
+  line-height: 1.4;
+  overflow: hidden;
+  position: relative;
+}
+
+#navigation > ul > li::after {
+  position: relative;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 0.1em;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 300ms, transform 300ms;
+  transform: translate3d(-100%, 0, 0);
+  overflow: hidden;
+}
+
+#navigation > ul > li:hover::after {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+nav > :last-child {
+  position: relative;
+  margin-left: auto;
+  margin-right: 8%;
+  display: flex;
+  gap: 32px;
+  font-size: 14px;
+}
+/* __MAIN_CONTENT__ */
+main {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+section {
+  position: relative;
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: auto 100%;
+}
+
+section > div {
+  position: absolute;
+  max-width: 520px;
+  width: 50%;
+  left: 50px;
+  bottom: 15%;
+}
+
+section > div > button {
+  margin-top: 30px;
+}
+
+button {
+  position: relative;
+  background-color: transparent;
+  outline: none;
+  border: solid white 2px;
+  color: white;
+  font-weight: bold;
+  padding: 1.5em 4em;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+button > span {
+  position: relative;
+  transition: all 0.5s;
+  z-index: 2;
+}
+button:hover {
+  color: black;
+}
+
+button::after {
+  position: absolute;
+  z-index: 0;
+  left: 0;
+  top: 0;
+  content: "";
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  transform: translateY(100%);
+  transition: all 0.5s;
+}
+
+button:hover::after {
+  position: absolute;
+  left: 0;
+  top: 0;
+  content: "";
+  background-color: white;
+  height: 100%;
+  width: 100%;
+  transform: translateY(0%);
+}
+
+/* ___FOOTER___ */
+
+footer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 32px;
+  height: 100px;
+  background-color: black;
+  font-size: 14px;
+}
+
+footer > span {
+  font-size: 12px;
+  opacity: 0.5;
+  font-weight: 100;
+}
+
+footer > a:hover {
+  opacity: 0.5;
+  transition: all 0.5s;
+}
+
+/* burger */
+
+#burger {
+  position: fixed;
+  overflow: visible;
+  display: flex;
+  right: 50px;
+  top: 4.5vh;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+  z-index: 10000000000000;
+}
+
+#burger > div {
+  position: relative;
+  height: 2px;
+  background-color: white;
+  width: 100%;
+  transition: all 0.5s;
+}
+
+#burger[data-active="active"] > :first-child {
+  transform: rotate(45deg);
+  transform-origin: left top;
+}
+
+#burger[data-active="active"] > :nth-child(2) {
+  opacity: 0;
+}
+
+#burger[data-active="active"] > :last-child {
+  transform: rotate(-45deg);
+  transform-origin: left bottom;
+}
+
+/* __SIDE MENU___ */
+
+#overlay {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  background-color: rgba(0, 0, 0, 0.374);
+  height: 100%;
+  width: 100%;
+}
+#sidemenu {
+  position: absolute;
+  background-color: black;
+  width: 350px;
+  height: 100vh;
+  right: 0;
+  top: 0;
+  z-index: 11110;
+  transition: all 0.5s;
+  transform: translateX(100%) skew(0deg, 0deg);
+  padding: 5% 50px;
+}
+
+#sidemenu[data-active="inactive"] {
+  animation: slideOut 0.5s forwards;
+}
+
+#sidemenu[data-active="active"] {
+  transition: all 0.5s;
+  animation: slideIn 0.5s forwards;
+}
+
+#sidemenu > ul {
+  width: 100%;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: right;
+}
+
+#sidemenu > ul > * {
+  width: 100%;
+  border-bottom: 1pt solid #252525;
+  padding: 0.4em;
+  font-weight: thin;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%) skew(0deg, 0deg);
+  }
+  50% {
+    transform: skew(2deg, 0deg);
+  }
+  100% {
+    transform: translateX(0%) skew(0deg, 0deg);
+  }
+}
+
+@keyframes slideOut {
+  100% {
+    transform: translateX(100%) skew(0deg, 0deg);
+  }
+  50% {
+    transform: skew(-2deg, 0deg);
+  }
+  0% {
+    transform: translateX(0%) skew(0deg, 0deg);
+  }
+}
+
+@media screen and (max-width: 960px) {
+  h2 {
+    font-size: 36px;
+  }
+  nav {
+    justify-content: center;
+  }
+  nav > :last-child {
+    display: none;
+  }
+  #navigation {
+    display: none;
+  }
+
+  section > div {
+    width: 100%;
+    left: 15px;
+  }
+
+  footer {
+    height: auto;
+    text-align: center;
+    padding: 32px 0px;
+    gap: 10px;
+  }
+  footer > span {
+    flex-basis: 100%;
+  }
+}

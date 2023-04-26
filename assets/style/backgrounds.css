@@ -1,0 +1,33 @@
+#section1 {
+  background-image: url(../img/desktop/1.jpg);
+}
+
+#section2 {
+  background-image: url(../img/desktop/2.jpg);
+}
+
+#section3 {
+  background-image: url(../img/desktop/3.png);
+}
+
+#section4 {
+  background-image: url(../img/desktop/4.webp);
+}
+
+@media screen and (max-width: 600px) {
+  #section1 {
+    background-image: url(../img/mobile/1.jpg);
+  }
+
+  #section2 {
+    background-image: url(../img/mobile/2.jpg);
+  }
+
+  #section3 {
+    background-image: url(../img/mobile/3.png);
+  }
+
+  #section4 {
+    background-image: url(../img/mobile/4.webp);
+  }
+}
