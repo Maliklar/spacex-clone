@@ -26,6 +26,9 @@ const closeMenu = () => {
   toggleMenu(false);
 };
 
-document.addEventListener("scroll", (e) => {
-  console.log(e);
+let lastY = 0;
+document.addEventListener("scroll", () => {
+  if (window.scrollY <= lastY) nav.setAttribute("data-active", "active");
+  else nav.setAttribute("data-active", "inactive");
+  lastY = window.scrollY;
 });

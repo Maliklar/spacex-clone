@@ -51,9 +51,12 @@ body {
 /* __NAVIGATION____ */
 
 nav[data-active="active"] {
+  transform: translateY(0%);
   opacity: 1;
 }
 nav[data-active="inactive"] {
+  transform: translateY(-100%);
+
   opacity: 0;
 }
 nav {
@@ -63,6 +66,7 @@ nav {
   width: 100%;
   display: flex;
   align-items: center;
+  transition: all 0.5s;
 }
 
 nav > div {
@@ -271,7 +275,7 @@ footer > a:hover {
   width: 100%;
 }
 #sidemenu {
-  position: absolute;
+  position: fixed;
   background-color: black;
   width: 350px;
   height: 100vh;
